@@ -1,20 +1,29 @@
 
-# Document
+# MircoPython - button
+#### 📖 [English document](https://github.com/aJantes/MircoPython-button/blob/master/English_Document.md)
+![](album/bit.gif)
+> 硬件介绍：[BPI:bit(ESP32)](https://github.com/aJantes/introduce-bpi-bit/blob/master/README.md)
 
-- 前提准备：[第一次使用必看](https://github.com/aJantes/Initialize-the-board/blob/master/readme.md)
-- 硬件介绍：[BPI:bit(ESP32)](https://github.com/aJantes/introduce-bpi-bit/blob/master/readme.md)
-- 编程工具：[pycharm](https://github.com/aJantes/use-pycharm/blob/master/readme.md)
+# 按键检测
 
-## 面板按键检测
-
-首先，要知道两个概念， Output 输出是表示从设备输出到外围，Input 输入是处理设备过程中接受到的一些信息
-
-那么在板子上最明显的输入便是二个按钮，灯板左右两个 A 和 B 按键，现在通过这两个按键学习面板按键检测
-- [button_a.py](https://github.com/aJantes/to-control-the-button/blob/master/button_a.py)
-
-## 处理事件
-
-如果想要板子去响应一个按钮按压事件，那么就需要用 if 进行判断按钮是否按压，而且这个判断方法建议放在一个死循环中。
+通过按键的 Output 输出和 Input 输入实现目的。
 
 
-- [smile_button.py](https://github.com/aJantes/to-control-the-button/blob/master/smile_button.py)
+## **按键状态识别**
+
+button 硬件相关函数 [button 模块](https://github.com/aJantes/MircoPython-button/blob/master/source/button.py)。在调用相关函数前，需要先导入对应的库。
+
+## 主要函数
+
+1. `button_a.get_presses()`:
+
+例如： `display.scroll(str(button_a.get_presses()))`  获取按键 A 按下的次数，并将其传递到 `display.sroll` 中。
+
+2. `button_a.is_pressed()`:
+
+用于判断按键 A 是否被按下
+
+---
+## button例子
+- [button_a.py](https://github.com/aJantes/MircoPython-button/blob/master/example/button_a.py)    - 判断按键 A 按下次数
+- [smile_button.py](https://github.com/aJantes/MircoPython-button/blob/master/example/smile_button.py)    - 判断按键 A 是否被按下，从而显示图像
